@@ -1,5 +1,5 @@
-const path = require("path");
-const { getInput } = require('../getInput.js');
+
+const { getInput, getName } = require('../utils.js');
 const pairs = getInput(__dirname);
 
 let pairsWithOverlap = 0;
@@ -31,4 +31,4 @@ pairs.forEach(pair => {
     }
 })
 
-exports.p2 = `${path.parse(__dirname).name} ${path.parse(__filename).name}: ` + pairsWithOverlap;
+exports.p2 = getName(__dirname, __filename) + pairsWithOverlap;

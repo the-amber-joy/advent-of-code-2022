@@ -8,6 +8,10 @@ const getInput = (dir) => fs
   .split("\n\n")[0]
   .split("\n");
 
+const getName = (dir, file) => `${path.parse(dir).name} ${path.parse(file).name}: `
+
 module.exports = {
-  getInput
+  getInput,
+  getName
 };
+

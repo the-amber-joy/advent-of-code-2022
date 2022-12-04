@@ -1,5 +1,5 @@
-const path = require("path");
-const { getInput } = require('../getInput.js');
+
+const { getInput, getName } = require('../utils.js');
 const elves = getInput(__dirname);
 const { getPriorityScore } = require("./getPriorityScore.js")
 
@@ -38,4 +38,4 @@ const answer = groups
     .map(item => getPriorityScore(item))
     .reduce((acc, curr) => acc + curr, 0);
 
-exports.p2 = `${path.parse(__dirname).name} ${path.parse(__filename).name}: ` + answer
+exports.p2 = getName(__dirname, __filename) + answer

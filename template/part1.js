@@ -1,5 +1,5 @@
-const path = require("path");
-const { getInput } = require('../getInput.js');
+
+const { getInput, getName } = require('../utils.js');
 const data = getInput(__dirname);
 
-exports.p1 = `${path.parse(__dirname).name} ${path.parse(__filename).name}: ` + "answer"
+exports.p1 = getName(__dirname, __filename) + "answer"

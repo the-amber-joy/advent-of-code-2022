@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const { getName } = require('../utils.js');
 const snacks = fs.readFileSync(path.join(__dirname, "input.txt"), "utf8").toString().trim().split("\n\n");
 
 const snackList = snacks
@@ -11,4 +12,4 @@ const snackList = snacks
   })
   .sort((a, z) => z - a);
 
-exports.p2 = `${path.parse(__dirname).name} ${path.parse(__filename).name}: ` + `${snackList[0] + snackList[1] + snackList[2]}`
+exports.p2 = getName(__dirname, __filename) + `${snackList[0] + snackList[1] + snackList[2]}`
