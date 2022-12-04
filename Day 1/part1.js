@@ -1,7 +1,8 @@
 
-const { input } = require('./input.js');
+const { input } = require('../input.js');
+const snacks = input(__dirname);
 
-const sumsSorted = input
+const sumsSorted = snacks
   .map(elf => {
     return elf
       .split("\n")
@@ -10,4 +11,10 @@ const sumsSorted = input
   })
   .sort((a, z) => z - a);
 
-console.log(sumsSorted[0]);
+const d1p1 = "Day 1 Part 1: " + sumsSorted[0];
+
+module.exports = {
+  sumsSorted,
+  d1p1
+};
+
