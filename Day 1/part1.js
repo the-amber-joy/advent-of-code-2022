@@ -11,10 +11,5 @@ const snackList = snacks
   })
   .sort((a, z) => z - a);
 
-const d1p1 = "Day 1 Part 1: " + snackList[0];
-
-module.exports = {
-  snackList,
-  d1p1
-};
+exports.d1p1 = "Day 1 Part 1: " + snackList[0];
 

@@ -1,6 +1,6 @@
 const { getInput } = require('../input.js');
 const elves = getInput(__dirname);
-const { getPriorityScore } = require("./part1")
+const { getPriorityScore } = require("./getPriorityScore.js")
 
 const findCommonItem = (group) => {
     const [sack1, sack2, sack3] = group.sort((a, b) => a.length - b.length);

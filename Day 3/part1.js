@@ -1,4 +1,5 @@
 const { getInput } = require('../input.js');
+const { getPriorityScore } = require("./getPriorityScore.js")
 const rucksacks = getInput(__dirname);
 
 const findCommonItem = (sack) => {
@@ -10,11 +11,6 @@ const findCommonItem = (sack) => {
     }
 }
 
-function getPriorityScore(letter) {
-    return 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        .indexOf(letter) + 1;
-}
-
 const answer = rucksacks
     .map(sack =>
         getPriorityScore(findCommonItem(sack))
@@ -22,9 +18,4 @@ const answer = rucksacks
     .reduce((acc, curr) => acc + curr, 0)
 
 
-const d3p1 = "Day 3 Part 1: " + answer;
-
-module.exports = {
-    getPriorityScore,
-    d3p1
-}
+exports.d3p1 = "Day 3 Part 1: " + answer;
