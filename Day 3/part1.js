@@ -1,4 +1,5 @@
-const { getInput } = require('../input.js');
+const path = require("path");
+const { getInput } = require('../getInput.js');
 const { getPriorityScore } = require("./getPriorityScore.js")
 const rucksacks = getInput(__dirname);
 
@@ -18,4 +19,4 @@ const answer = rucksacks
     .reduce((acc, curr) => acc + curr, 0)
 
 
-exports.d3p1 = "Day 3 Part 1: " + answer;
+exports.p1 = `${path.parse(__dirname).name} ${path.parse(__filename).name}: ` + answer

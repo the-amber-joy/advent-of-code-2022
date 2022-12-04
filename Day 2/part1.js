@@ -1,4 +1,5 @@
-const { getInput } = require('../input.js');
+const path = require("path");
+const { getInput } = require('../getInput.js');
 const matches = getInput(__dirname);
 
 const MY_CHOICE = {
@@ -31,4 +32,4 @@ const totalScore = matches
     .map(match => getScore([match.charAt(0), match.charAt(2)]))
     .reduce((total, matchPoints) => total + matchPoints, 0)
 
-exports.d2p1 = "Day 2 Part 2: " + totalScore
+exports.p1 = `${path.parse(__dirname).name} ${path.parse(__filename).name}: ` + totalScore

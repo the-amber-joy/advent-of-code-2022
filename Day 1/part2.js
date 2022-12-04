@@ -11,4 +11,4 @@ const snackList = snacks
   })
   .sort((a, z) => z - a);
 
-exports.d1p2 = "Day 1 Part 2: " + `${snackList[0] + snackList[1] + snackList[2]}`
+exports.p2 = `${path.parse(__dirname).name} ${path.parse(__filename).name}: ` + `${snackList[0] + snackList[1] + snackList[2]}`
