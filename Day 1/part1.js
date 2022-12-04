@@ -1,6 +1,6 @@
 
-const { input } = require('../input.js');
-const snacks = input(__dirname);
+const { getInput } = require('../input.js');
+const snacks = getInput(__dirname);
 
 const sumsSorted = snacks
   .map(elf => {

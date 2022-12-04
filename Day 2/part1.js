@@ -1,5 +1,5 @@
-const { input } = require('../input.js');
-const data = input(__dirname);
+const { getInput } = require('../input.js');
+const data = getInput(__dirname);
 
 const OUTCOME = {
     win: 6,

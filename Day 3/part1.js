@@ -1,5 +1,5 @@
-const { input } = require('../input.js');
-const rucksacks = input(__dirname)[0].split("\n");
+const { getInput } = require('../input.js');
+const rucksacks = getInput(__dirname)[0].split("\n");
 
 const findCommonItem = (sack) => {
     const compartment1 = sack.substring(0, sack.length/2);

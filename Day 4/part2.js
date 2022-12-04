@@ -1,5 +1,5 @@
-const { input } = require('../input.js');
-const pairs = input(__dirname)[0].split("\n");
+const { getInput } = require('../input.js');
+const pairs = getInput(__dirname)[0].split("\n");
 
 let pairsWithOverlap = 0;
 
