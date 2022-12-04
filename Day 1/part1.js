@@ -1,8 +1,8 @@
+const path = require("path");
+const fs = require("fs");
+const snacks = fs.readFileSync(path.join(__dirname, "input.txt"), "utf8").toString().trim().split("\n\n");
 
-const { getInput } = require('../input.js');
-const snacks = getInput(__dirname);
-
-const sumsSorted = snacks
+const snackList = snacks
   .map(elf => {
     return elf
       .split("\n")
@@ -11,10 +11,10 @@ const sumsSorted = snacks
   })
   .sort((a, z) => z - a);
 
-const d1p1 = "Day 1 Part 1: " + sumsSorted[0];
+const d1p1 = "Day 1 Part 1: " + snackList[0];
 
 module.exports = {
-  sumsSorted,
+  snackList,
   d1p1
 };
 

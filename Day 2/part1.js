@@ -1,52 +1,34 @@
 const { getInput } = require('../input.js');
-const data = getInput(__dirname);
+const matches = getInput(__dirname);
 
-const OUTCOME = {
-    win: 6,
-    draw: 3,
-    lose: 0
-}
 const MY_CHOICE = {
     X: {
-        points: 1,
-        A: OUTCOME.draw,
-        B: OUTCOME.lose,
-        C: OUTCOME.win
+        choicePoints: 1,
+        A: 3,
+        B: 0,
+        C: 6
     },
     Y: {
-        points: 2,
-        A: OUTCOME.win,
-        B: OUTCOME.draw,
-        C: OUTCOME.lose
+        choicePoints: 2,
+        A: 6,
+        B: 3,
+        C: 0
     },
     Z: {
-        points: 3,
-        A: OUTCOME.lose,
-        B: OUTCOME.win,
-        C: OUTCOME.draw
+        choicePoints: 3,
+        A: 0,
+        B: 6,
+        C: 3
     }
 }
 
 const getScore = (round) => {
-    const them = round[0]
-    const me = round[1]
-    // get score for what I picked
-    const myPickPoints = MY_CHOICE[me].points;
-
-    // // find result of match
-    const matchResult = MY_CHOICE[me][them]
-
-    // // get score for result
-    return myPickPoints + matchResult
+    const [them, me] = round
+    return MY_CHOICE[me].choicePoints + MY_CHOICE[me][them]
 }
 
-const matches = data[0].split("\n");
-
-const rounds = matches.map(match => {
-    const play = [match.charAt(0), match.charAt(2)]
-    return getScore(play)
-})
-
-const totalScore = rounds.reduce((total, points) => total + parseInt(points, 10), 0)
+const totalScore = matches
+    .map(match => getScore([match.charAt(0), match.charAt(2)]))
+    .reduce((total, matchPoints) => total + matchPoints, 0)
 
 exports.d2p1 = "Day 2 Part 2: " + totalScore

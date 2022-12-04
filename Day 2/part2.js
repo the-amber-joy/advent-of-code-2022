@@ -1,95 +1,62 @@
 const { getInput } = require('../input.js');
-const data = getInput(__dirname);
-
-const PLANNED_OUTCOME = {
-    X: "lose",
-    Y: "draw",
-    Z: "win"
-}
-
-const MY_CHOICE = {
-    ROCK: {
-        points: 1,
-        A: PLANNED_OUTCOME.draw,
-        B: PLANNED_OUTCOME.lose,
-        C: PLANNED_OUTCOME.win
-    },
-    PAPER: {
-        points: 2,
-        A: PLANNED_OUTCOME.win,
-        B: PLANNED_OUTCOME.draw,
-        C: PLANNED_OUTCOME.lose
-    },
-    SCISSORS: {
-        points: 3,
-        A: PLANNED_OUTCOME.lose,
-        B: PLANNED_OUTCOME.win,
-        C: PLANNED_OUTCOME.draw
-    }
-}
+const matches = getInput(__dirname);
 
 const MY_RULES = {
     A: {
-        lose: {
-            play: MY_CHOICE.SCISSORS
+        X: {
+            matchScore: 0,
+            choicePoints: 3
         },
-        draw: {
-            play: MY_CHOICE.ROCK
+        Y: {
+            matchScore: 3,
+            choicePoints: 1
         },
-        win: {
-            play: MY_CHOICE.PAPER
+        Z: {
+            matchScore: 6,
+            choicePoints: 2
         }
     },
     B: {
-        lose: {
-            play: MY_CHOICE.ROCK
+        X: {
+            matchScore: 0,
+            choicePoints: 1
         },
-        draw: {
-            play: MY_CHOICE.PAPER
+        Y: {
+            matchScore: 3,
+            choicePoints: 2
         },
-        win: {
-            play: MY_CHOICE.SCISSORS
+        Z: {
+            matchScore: 6,
+            choicePoints: 3
         }
     },
     C: {
-        lose: {
-            play: MY_CHOICE.PAPER
+        X: {
+            matchScore: 0,
+            choicePoints: 2
         },
-        draw: {
-            play: MY_CHOICE.SCISSORS
+        Y: {
+            matchScore: 3,
+            choicePoints: 3
         },
-        win: {
-            play: MY_CHOICE.ROCK
+        Z: {
+            matchScore: 6,
+            choicePoints: 1
         }
     }
 }
 
-const OUTCOME_POINTS = {
-    win: 6,
-    draw: 3,
-    lose: 0
+const getPointsForMove = (round) => {
+    const [them, me] = round;
+    const {choicePoints, matchScore} = MY_RULES[them][me];
+
+    return choicePoints + matchScore;
 }
 
-const pointsForMove = (round) => {
-    const them = round[0]
-    const me = round[1]
-    const myPlay = PLANNED_OUTCOME[me]
-    const pointsForSelection = MY_RULES[them][myPlay].play.points
+const totalScore = matches
+    .map(match => [match.charAt(0), match.charAt(2)])
+    .map(round => getPointsForMove(round))
+    .reduce((total, matchPoints) => total + matchPoints, 0);
 
-    return pointsForSelection + OUTCOME_POINTS[myPlay]
-}
-
-
-const matches = data[0].split("\n");
-
-const rounds = matches.map(match => {
-    return [match.charAt(0), match.charAt(2)]
-})
-
-const final = rounds.map(round => {
-    return pointsForMove(round)
-})
-
-const totalScore = final.reduce((total, points) => total + parseInt(points, 10), 0)
 
 exports.d2p2 = "Day 2 Part 2: " + totalScore
