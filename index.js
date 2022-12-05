@@ -2,8 +2,8 @@ const fs = require("fs");
 
 const dirs =
     fs.readdirSync(__dirname, { withFileTypes: true })
-        .filter(dirent => dirent.isDirectory() && dirent.name != ".git" && dirent.name != "template")
-        .map(dirent => dirent.name)
+        .filter(dir => dir.isDirectory() && dir.name != ".git" && dir.name != "template")
+        .map(dir => dir.name)
 
 const results = []
 dirs.forEach((dayDir, i) => {
