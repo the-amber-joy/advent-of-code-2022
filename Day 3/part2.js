@@ -1,4 +1,3 @@
-
 const { getInput, getName } = require('../utils.js');
 const elves = getInput(__dirname);
 const { getPriorityScore } = require("./getPriorityScore.js")

@@ -1,3 +1,4 @@
+// https://adventofcode.com/2022/day/1
 const path = require("path");
 const fs = require("fs");
 const { getName } = require('../utils.js');

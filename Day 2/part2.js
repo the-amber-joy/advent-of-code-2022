@@ -1,4 +1,3 @@
-
 const { getInput, getName } = require('../utils.js');
 const matches = getInput(__dirname);
 

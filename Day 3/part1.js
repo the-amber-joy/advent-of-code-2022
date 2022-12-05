@@ -1,4 +1,4 @@
-
+// https://adventofcode.com/2022/day/3
 const { getInput, getName } = require('../utils.js');
 const { getPriorityScore } = require("./getPriorityScore.js")
 const rucksacks = getInput(__dirname);
