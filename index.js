@@ -15,4 +15,4 @@ dirs.forEach((dayDir, i) => {
     )
 })
 
-module.exports = {results};
+module.exports = { results };

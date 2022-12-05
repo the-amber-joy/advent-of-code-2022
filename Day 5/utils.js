@@ -11,6 +11,7 @@ const stacks = {
 };
 
 const parseInstructions = (words) => {
+    // "Move N from A to B"
     const split = words.split(" ");
     const num = split[1]
     const orig = split[3]
